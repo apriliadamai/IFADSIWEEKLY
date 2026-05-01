@@ -1,0 +1,192 @@
+/*=== RESET & BASE === */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 15px;
+    background-color: #f0f4f8;
+    color: #333333;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: #2d6cca;
+}
+
+a:hover {
+    color: #1a3c6e;
+    text-decoration: underline;
+}
+
+/*=== JUDUL HALAMAN === */
+h1 {
+    background: linear-gradient(135deg, #1a3c6e, #2d6cca);
+    color: white;
+    padding: 1.2rem 2rem;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+/* === GARIS BAWAH JUDUL === */
+hr {
+    border: none;
+    border-top: 3px solid #2d6cca;
+    margin: 0;
+}
+
+/* === TABEL NAVIGASI === */
+body > table {
+    background-color: #1a3c6e;
+    width: 100%;
+    border: none !important;
+    border-collapse: collapse;
+    margin-bottom: 0;
+}
+
+body > table td {
+    border: none !important;
+    padding: 0 !important;
+}
+
+body > table a {
+    display: inline-block;
+    color: #a8c8ff;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    text-decoration: none;
+}
+
+body > table a:hover {
+    color: #ffffff;
+    border-bottom-color: #4da6ff;
+    text-decoration: none;
+}
+
+/*=== KONTEN UTAMA === */
+h2, h3, p, ul, img {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+/* === SAMBUTAN === */
+h2 {
+    color: #1a3c6e;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 1.8rem;
+    margin-bottom: 1rem;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #2d6cca;
+    max-width: 960px;
+}
+
+/* === FOTO === */
+img[alt="Kaprodi"] {
+    display: block;
+    width: 180px !important;
+    height: auto;
+    border-radius: 8px;
+    border: 3px solid #2d6cca;
+    box-shadow: 0 4px 12px rgba(45, 108, 202, 0.2);
+    margin-bottom: 1rem;
+}
+
+/* === INFO === */
+p {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #2d6cca;
+    max-width: 600px;
+}
+
+p b {
+    color:#1a3c6e;
+}
+
+p i {
+    color:#2d6cca;
+}
+
+/* === H3 === */
+h3 {
+    color:#1a3c6e;
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #2d6cca;
+    max-width: 960px;
+}
+
+/* === DAFTAR PUBLIKASI === */
+ul {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1rem 1rem 1rem 2.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    margin-bottom: 2rem;
+    max-width: 400px;
+    list-style-type: disc;
+}
+
+ul ul {
+    background: transparent;
+    box-shadow: none;
+    padding: 2px 0 2px 1.4rem;
+    margin: 0;
+    list-style-type: circle;
+}
+
+ul li {
+    font-size: 14px;
+    color: #333;
+    padding: 4px 0;
+}
+
+ul li::marker {
+    color:#2d6cca;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 20px;
+        padding: 1rem 1.2rem;
+    }
+
+    body > table a {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    h2, h3, p, ul, img {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    img[alt="Kaprodi"] {
+        width: 140px !important;
+    }
+
+    p {
+        font-size: 13px;
+    }
+}
+
+
+
+

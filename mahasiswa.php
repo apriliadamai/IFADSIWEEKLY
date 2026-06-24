@@ -1,22 +1,11 @@
 <?php
- $koneksi = mysqli_connect("localhost", "root", "root", "ifadsi");
-
+ require 'fungsi.php';
  //if($koneksi)
 //  {
 //     echo "Koneksi Berhasil";
 // }
-$query = "SELECT * FROM mahasiswa";
-
-$result = mysqli_query($koneksi, $query);
-
-// while ($mhs = mysqli_fetch_assoc($result));
-//     {
-//         var_dump($mhs);
-//     }
-
-
+$qmahasiswa = query("SELECT * FROM mahasiswa");
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,52 +15,62 @@ $result = mysqli_query($koneksi, $query);
     <title>Data Mahasiswa</title>
 </head>
 <body>
-    <body>
     <h1>WEB INFORMATIKA</h1>
     <hr>
     <table border="1" cellspacing="0" cellpadding="5px"> 
         <tr>
-            <td>
-                <a href="index.html">Home</a>
-                <td><a href="profile.html">Profile</a></td>
-                <td><a href="contact.html">Contact</a></td>
-            </td>
+            <td><a href="index.php">Home</a>
+            <td><a href="profile.php">Profile</a></td>
+            <td><a href="contact.php">Contact</a></td>
         </tr>
     </table>
     <h2>Data Mahasiswa</h2>
-    <a href="inputdata.html">
-        <button>Tambah Data</button>
+    <a href="inputdata.php">
+        <button>Tambah Data Mahasiswa</button>
     </a>
     <table border="1" cellpadding="5px">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Jurusan</th>
+                <th>Email</th>
+                <th>no_hp</th>
+                <th>Foto</th> 
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+            $no = 1;
+            foreach($qmahasiswa as $row) :
+            ?>
         <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>NIM</th>
-            <th>Jurusan</th>
-            <th>Email</th>
-            <th>no_hp</th>
-            <th>Foto</th> 
-            
+            <td align="center"><?= $no++; ?></td>
+            <td><?= htmlspecialchars($row['nama']);  ?></td>
+            <td><?= htmlspecialchars($row['nim']);  ?></td>
+            <td><?= htmlspecialchars($row['jurusan']);  ?></td>
+            <td><?= htmlspecialchars($row['email']);  ?></td>
+            <td><?= htmlspecialchars($row['no_hp']);  ?></td>
+            <td align="center">
+                <?php if (!empty($row['foto'])): ?>
+                    <img src="assets/images/<?= $row['foto']; ?>"width="120px" alt="Foto <?= $row['nama']; ?>">
+                <?php else: ?>
+                    <img src="assets/images/fotomh.jpg" width="120px" alt="No Image">
+                <?php endif; ?>
+            </td>
+            <td>
+                <a href="editdata.php?id=<?= $row['id']; ?>">
+                    <button>EDIT</button>
+                </a> 
+            <a href="deletedata.php?id=<?= $row['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                <button>DELETE</button>
+            </a>
+            </td>
         </tr>
-        
-        <?php 
-            while($mhs = mysqli_fetch_assoc($result))
-            {
-        
-        ?>
-        <tr>
-            <td align="center">1</td>
-            <td>Aprilia Damai</td>
-            <td align="center">13182420020</td>
-            <td align="center">Informatika</td>
-            <td align="center">amecintaunimus@gmail.com</td>
-            <td align="center">1234567890</td>
-            <td align="center"><img src="assets/images/<?php echo $mhs["fotomh.jpg"] ?>" width="70" /></td>
-            <td><a href="editdata.php"><button>EDIT</button></a> <a href="deletedata.php"><button>DELETE</button></a></td>
-
-        </tr>
-        <?php
-            } 
-        ?>
+        <?php endforeach; ?>
+    </tbody>
+    </table>
 </body>
 </html>
